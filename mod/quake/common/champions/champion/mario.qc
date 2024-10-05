@@ -6,13 +6,6 @@ METHOD(Mario, m_activate, void(Champions this, entity actor))
 	player_sound(actor, CH_VOICE, "start.wav", ATTN_NORM);
 }
 
-METHOD(Mario, m_condition, bool(Champions this, entity actor))
-{
-	if(autocvar_sv_allow_customplayermodels_speciallist == "")
-		return true;
-	return !PlayerInList(actor, autocvar_sv_allow_customplayermodels_speciallist);
-}
-
 METHOD(Mario, m_cannon_launch, void(Champions this, entity actor, entity cannon))
 {
 	player_sound(actor, CH_TRIGGER_SINGLE, "death2.wav", ATTN_NORM);

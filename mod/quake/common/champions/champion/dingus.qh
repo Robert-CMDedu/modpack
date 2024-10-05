@@ -65,7 +65,6 @@ ENDCLASS(Dingus)
 REGISTER_CHAMPION(Dingus, NEW(Dingus));
 
 #ifdef SVQC
-string autocvar_sv_allow_customplayermodels_dingus = "";
 
 .bool dingus_cannon;
 .float dingus_bash_delay;

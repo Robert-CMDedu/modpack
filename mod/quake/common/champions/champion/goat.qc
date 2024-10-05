@@ -6,12 +6,6 @@ METHOD(Goat, m_activate, void(Champions this, entity actor))
 	_sound(actor, CH_WEAPON_SINGLE, "goatling/death1.wav", 1, ATTN_NORM);
 }
 
-METHOD(Goat, m_condition, bool(Champions this, entity actor))
-{
-	if(autocvar_sv_allow_customplayermodels_goatlist == "")
-		return true;
-	return !PlayerInList(actor, autocvar_sv_allow_customplayermodels_goatlist);
-}
 
 METHOD(Goat, m_cannon_launch, void(Champions this, entity actor, entity cannon))
 {

@@ -21,12 +21,6 @@ METHOD(Dingus, m_cannon_land, bool(Champions this, entity actor))
 	return false;
 }
 
-METHOD(Dingus, m_condition, bool(Champions this, entity actor))
-{
-	if(autocvar_sv_allow_customplayermodels_dingus == "")
-		return true;
-	return !PlayerInList(actor, autocvar_sv_allow_customplayermodels_dingus);
-}
 
 METHOD(Dingus, m_touch, void(Champions this, entity actor, entity toucher))
 {
