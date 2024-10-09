@@ -417,6 +417,8 @@ void GotoNextMap()
 	{
 		if(autocvar_horde)
 			changelevel(HordeRandomMap());
+		else if(deathmatch)
+			changelevel(PickDMMap(true));
 		else
 			changelevel(nextmap);
 	}
@@ -3272,6 +3274,7 @@ void SV_ParseClientCommand(entity this, string command)
 		case "prespawn": break;                            // handled by engine in host_cmd.c
 		case "sentcvar": break;                            // handled by server in this file
 		case "spawn": break;                               // handled by engine in host_cmd.c
+		case "say": case "say_team": case "tell": break;   // chat has its own flood control in chat.qc
 		case "c2s": Net_ClientCommand(this, command); return; // handled by net.qh
 	}
 

@@ -752,6 +752,8 @@ Weapon W_RandomizeWeapon(Weapon wpn)
 	FOREACH(Weapons, it != WEP_Null && it != WEP_AXE && it != WEP_SHOTGUN && it != WEP_BALL && !(it.spawnflags & WEP_FLAG_CHAMPION),
 	{
 		// hack to allow instruments to replace regular weapon spawns
+		if(deathmatch && (it.spawnflags & WEP_FLAG_MUSIC))
+			continue; // but not in deathmatch
 		int mytype = it.ammo_type;
 		switch(it)
 		{
@@ -821,6 +823,12 @@ Weapon W_RandomizeWeapon(Weapon wpn)
 			{
 				if(random() > 0.33)
 					mytype = IT_ROCKETS;
+				break;
+			}
+			case WEP_HAMMER:
+			{
+				if(random() > 0.5)
+					mytype = IT_CELLS;
 				break;
 			}
 		}
